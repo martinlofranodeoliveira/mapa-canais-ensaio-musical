@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; worker-src 'self'; connect-src 'none'; img-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <title>Mapa de Canais para Ensaio Musical</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body data-layout="ferramenta">
+  <a class="skip" href="#entry-form">Ir para a ferramenta</a>
+  <main data-layout-profile="mapa-canais-ensaio-musical" data-layout="ferramenta">
+    <header class="task-header" data-region="task-header">
+      <div class="masthead">
+        <a href="https://lofranotecnologia.com.br/projetos" class="brand" aria-label="Projetos da LOFRANO">LOFRANO</a>
+        <span class="product-sector">Áudio e música</span>
+      </div>
+      <div class="task-title">
+        <h1>Mapa de Canais para Ensaio Musical</h1>
+        <p>Confira canais solicitados e montados por sessão e sinalize ajustes antes do ensaio de som.</p>
+      </div>
+    </header>
+    <div class="workarea">
+      <section class="entry-panel" data-region="input" data-task-editor="ferramenta" aria-labelledby="entry-title">
+        <div class="module-heading">
+          <h2 id="entry-title">Dados da conferência</h2>
+          <button type="button" id="reset" class="quiet reset">Restaurar exemplo</button>
+        </div>
+        <form id="entry-form" class="editor-form" aria-labelledby="entry-title" tabindex="-1">
+          <div id="fields"></div>
+        </form>
+        <div class="entry-actions">
+          <button type="button" id="run" class="primary">Executar conferência</button>
+        </div>
+      </section>
+      <section class="result-panel" data-region="result" aria-labelledby="output-title">
+        <div class="result-header">
+          <div class="module-heading">
+            <h2 id="output-title">Resultado da conferência</h2>
+            <button type="button" id="download" class="quiet export" disabled>Baixar relatório</button>
+          </div>
+          <p role="status" id="status">Confira o resultado nesta área.</p>
+        </div>
+        <dl id="stats" aria-label="Resumo de conferência"></dl>
+        <div id="insights" data-region="insights" data-task-insights="ferramenta"></div>
+        <div id="result" data-region="result-details" tabindex="0" role="region" aria-labelledby="output-title"></div>
+      </section>
+    </div>
+    <footer class="task-footer">Exemplo fictício. O processamento acontece neste navegador.</footer>
+  </main>
+  <template id="sample-data">{"rows":[{"id":"amostra-a","sessao":"Exemplo regra-canaisCompletos 1","canaisPedidos":5,"canaisMontados":5,"entradasDisponiveis":11,"somTestado":true},{"id":"amostra-b","sessao":"Exemplo regra-canaisCompletos 1","canaisPedidos":5,"canaisMontados":2,"entradasDisponiveis":11,"somTestado":true}]}</template>
+  <template id="field-config">[{"key":"rows","label":"Registros","singular":"registro","fields":[{"key":"id","label":"Identificador","kind":"text","optional":false},{"key":"sessao","label":"Identificação da sessão","kind":"text","optional":false},{"key":"canaisPedidos","label":"Canais de entrada pedidos","kind":"integer","optional":false},{"key":"canaisMontados","label":"Canais de entrada montados","kind":"integer","optional":false},{"key":"entradasDisponiveis","label":"Entradas disponíveis","kind":"integer","optional":false},{"key":"somTestado","label":"Passagem de som registrada","kind":"checkbox","optional":false}],"maximum":150}]</template>
+</body>
+</html>
